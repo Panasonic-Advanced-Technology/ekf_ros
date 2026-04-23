@@ -66,7 +66,7 @@ ros2 launch ekf_ros gnss_vs_gnss_and_imu.launch.py
 ```bash
 cd rosbag
 # 記録用
-ros2 bag record --all -o result &
+ros2 bag record --all -o result 
 # 再生
 ros2 bag play s_curve --clock
 ```
