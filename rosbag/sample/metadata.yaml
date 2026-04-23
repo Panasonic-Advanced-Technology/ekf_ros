@@ -1,0 +1,33 @@
+rosbag2_bagfile_information:
+  compression_format: ''
+  compression_mode: ''
+  custom_data: {}
+  duration:
+    nanoseconds: 166033449930
+  files:
+  - duration:
+      nanoseconds: 166033449930
+    message_count: 16780
+    path: sample.db3
+    starting_time:
+      nanoseconds_since_epoch: 1768541181486273110
+  message_count: 16780
+  relative_file_paths:
+  - sample.db3
+  starting_time:
+    nanoseconds_since_epoch: 1768541181486273110
+  storage_identifier: sqlite3
+  topics_with_message_count:
+  - message_count: 16614
+    topic_metadata:
+      name: /imu
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/Imu
+  - message_count: 166
+    topic_metadata:
+      name: /gnss1
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/NavSatFix
+  version: 6

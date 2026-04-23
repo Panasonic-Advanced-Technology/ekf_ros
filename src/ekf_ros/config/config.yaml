@@ -1,0 +1,19 @@
+# ekf_config.yaml
+
+initial_covariance:
+  position: 1.0        # [m^2] px, py
+  attitude: 0.01       # [rad^2] yaw
+  velocity: 0.1        # [(m/s)^2] vx, vy
+  gyro_bias: 0.001     # [(rad/s)^2] bg
+  accel_bias: 0.01     # [(m/s^2)^2] bax, bay
+
+process_noise:
+  gyro_std: 0.10           # [rad/s] 角速度ノイズ
+  accel_std: 0.40           # [m/s^2] 加速度ノイズ
+  gyro_bias_rw_std: 0.50  # [rad/s/√s] ジャイロバイアスRW
+  accel_bias_rw_std: 0.50  # [m/s^2/√s] 加速度バイアスRW
+
+measurement_noise:
+  gnss_pos_std: 0.01   # [m] 位置ノイズ
+  gnss_yaw_std: 0.01  # [rad] yawノイズ
+  gnss_vel_std: 0.000001   # [m/s] 速度ノイズ
