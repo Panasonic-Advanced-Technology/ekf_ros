@@ -49,6 +49,44 @@ cd rosbag
 ros2 bag play sample
 ```
 
+### GNSS 単独 vs GNSS + IMU の比較
+
+GNSS のみを使った位置推定と、GNSS + IMU 融合による位置推定を同時に実行し、
+途中で GNSS が欠損する区間（デフォルトでは 55 番目の GNSS 受信から 1 秒間）を
+再現して両者の挙動を比較できます。
+
+プログラム実行
+
+```bash
+ros2 launch ekf_ros gnss_vs_gnss_and_imu.launch.py
+```
+
+別ターミナルで rosbag の再生と記録
+
+```bash
+cd rosbag
+# 記録用
+ros2 bag record --all -o result &
+# 再生
+ros2 bag play s_curve --clock
+```
+
+記録した rosbag を解析して軌跡を PNG 出力
+
+```bash
+cd analysis
+python3 analysis.py
+# trajectory.png が出力され、画面にも表示されます
+```
+
+出力例:
+
+![trajectory](analysis/trajectory.png)
+
+- 青点: GNSS の観測位置
+- 赤点: GNSS + IMU 融合の推定位置
+- 緑点: GNSS 単独の推定位置
+
 
 ## ライセンス
 
