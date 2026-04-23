@@ -7,11 +7,11 @@ rosbag2_bagfile_information:
   files:
   - duration:
       nanoseconds: 166033449930
-    message_count: 16780
+    message_count: 16946
     path: sample.db3
     starting_time:
       nanoseconds_since_epoch: 1768541181486273110
-  message_count: 16780
+  message_count: 16946
   relative_file_paths:
   - sample.db3
   starting_time:
@@ -24,6 +24,12 @@ rosbag2_bagfile_information:
       offered_qos_profiles: ''
       serialization_format: cdr
       type: sensor_msgs/msg/Imu
+  - message_count: 166
+    topic_metadata:
+      name: /vel
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: geometry_msgs/msg/TwistStamped
   - message_count: 166
     topic_metadata:
       name: /gnss1

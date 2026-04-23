@@ -17,3 +17,9 @@ measurement_noise:
   gnss_pos_std: 0.01   # [m] 位置ノイズ
   gnss_yaw_std: 0.01  # [rad] yawノイズ
   gnss_vel_std: 0.000001   # [m/s] 速度ノイズ
+
+# 初期状態 (任意項目。省略時は 0 初期化)
+initial_state:
+  yaw: 0.0
+  accel_bias: [0.0, 0.0]
+  gyro_bias: 0.0

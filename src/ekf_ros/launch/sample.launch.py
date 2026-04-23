@@ -76,6 +76,7 @@ def generate_launch_description():
         remappings=[
             ('/gnss', '/gnss1'),
             ('/imu', '/imu'),
+            ('/vel', '/vel'),
         ]
     )
 

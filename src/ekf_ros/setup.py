@@ -28,6 +28,7 @@ setup(
         'console_scripts': [
             'ekf_node = ekf_ros.ekf_node:main',
             'ekf_viewer = ekf_ros.viewer:main',
+            'gnss_vs_gnss_and_imu_node = ekf_ros.gnss_vs_gnss_and_imu_node:main',
         ],
     },
 )

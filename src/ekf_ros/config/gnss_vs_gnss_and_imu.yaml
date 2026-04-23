@@ -1,0 +1,43 @@
+# gnss_vs_gnss_and_imu.yaml
+# sim_view.ipynb で設定している P0 / Q / Q2 / R と同じ値を使用
+#
+# 対応関係:
+#   initial_covariance    <- P0   (8x8)
+#   process_noise_fusion  <- Q    (GNSS + IMU 融合側)
+#   process_noise_gnss_only <- Q2 (GNSS単独・IMU入力=0 側)
+#   measurement_noise     <- R    (5x5)
+
+initial_covariance:
+  position: 0.1          # [m^2]           P0[0,0] = P0[1,1]
+  attitude: 0.030461742  # [rad^2]         np.deg2rad(10)**2
+  velocity: 0.1          # [(m/s)^2]       P0[3,3] = P0[4,4]
+  gyro_bias: 0.01        # [(rad/s)^2]     0.1**2
+  accel_bias: 0.01       # [(m/s^2)^2]     0.1**2
+
+# GNSS + IMU 融合 (ipynb の Q)
+process_noise_fusion:
+  gyro_std: 0.10            # [rad/s]
+  accel_std: 0.50           # [m/s^2]
+  gyro_bias_rw_std: 0.50    # [rad/s/√s]
+  accel_bias_rw_std: 0.50   # [m/s^2/√s]
+
+# GNSS 単独 (IMU入力=0, ipynb の Q2)
+# ipynb では bias RW を 0 にしているが、0行列は共分散更新で退化する恐れが
+# あるため、ノード側でそのまま np.diag に入れる（ipynb と完全一致）。
+process_noise_gnss_only:
+  gyro_std: 1.00
+  accel_std: 1.00
+  gyro_bias_rw_std: 0.00
+  accel_bias_rw_std: 0.00
+
+measurement_noise:
+  gnss_pos_std: 0.01         # [m]                 0.01**2
+  gnss_yaw_std: 0.01         # [rad]               0.01**2
+  gnss_vel_std: 0.003162278  # [m/s]  sqrt(0.00001)
+
+# 初期状態 (sim_view.ipynb の x0 と同じ)
+initial_state:
+  yaw: -1.5707963267948966   # -pi/2
+  accel_bias: [0.1, 0.1]     # ba
+  gyro_bias: 0.1             # bg
+  # pos は最初の GNSS の ENU=[0,0]、vel は最初の /vel から初期化する

@@ -7,11 +7,11 @@ rosbag2_bagfile_information:
   files:
   - duration:
       nanoseconds: 128773628632
-    message_count: 13014
+    message_count: 13143
     path: s_curve.db3
     starting_time:
       nanoseconds_since_epoch: 1768542534796901102
-  message_count: 13014
+  message_count: 13143
   relative_file_paths:
   - s_curve.db3
   starting_time:
@@ -24,6 +24,12 @@ rosbag2_bagfile_information:
       offered_qos_profiles: ''
       serialization_format: cdr
       type: sensor_msgs/msg/Imu
+  - message_count: 129
+    topic_metadata:
+      name: /vel
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: geometry_msgs/msg/TwistStamped
   - message_count: 129
     topic_metadata:
       name: /gnss1
